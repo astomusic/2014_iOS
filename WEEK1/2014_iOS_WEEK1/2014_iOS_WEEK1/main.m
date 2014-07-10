@@ -10,17 +10,22 @@
 NSMutableArray* NXDisplayAllFilesAtPath(NSString *path);
 Boolean isExistFilename(NSString *fName, NSString *path);
 NSArray* NXSortedFiles(NSString *path, Boolean ascending);
+void checkExistFiles(NSArray* files, NSString *path);
 
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
         Boolean result;
+        NSString* path = @"/Users/astomusic/Desktop";
+        NSArray *files = [[NSArray alloc] initWithObjects: @"test.txt", @"test1.txt", @"text9.txt", nil];
         
-        result = isExistFilename(@"test.txt", @"/Users/astomusic/Desktop");
+        result = isExistFilename(@"test.txt", path);
         
-        NXSortedFiles(@"/Users/astomusic/Desktop", YES);
-        NXSortedFiles(@"/Users/astomusic/Desktop", NO);
+        NXSortedFiles(path, YES);
+        NXSortedFiles(path, NO);
+        
+        checkExistFiles(files, path);
 
     }
     return 0;
@@ -62,7 +67,7 @@ NSArray* NXSortedFiles(NSString *path, Boolean ascending) {
     dirArray = NXDisplayAllFilesAtPath(path);
     
     NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"" ascending:ascending];
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:ascending];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     sortedArray = [dirArray sortedArrayUsingDescriptors:sortDescriptors];
     
@@ -73,6 +78,11 @@ NSArray* NXSortedFiles(NSString *path, Boolean ascending) {
     
     return sortedArray;
 }
+
+void checkExistFiles(NSArray* files, NSString *path) {
+    
+}
+
 
 
 
