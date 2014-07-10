@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 NSMutableArray* NXDisplayAllFilesAtPath(NSString *path);
 Boolean isExistFilename(NSString *fName, NSString *path);
+NSArray* NXSortedFiles(NSString *path, Boolean ascending);
 
 int main(int argc, const char * argv[])
 {
@@ -17,6 +18,10 @@ int main(int argc, const char * argv[])
         Boolean result;
         
         result = isExistFilename(@"test.txt", @"/Users/astomusic/Desktop");
+        
+        NXSortedFiles(@"/Users/astomusic/Desktop", YES);
+        NXSortedFiles(@"/Users/astomusic/Desktop", NO);
+
     }
     return 0;
 }
@@ -44,11 +49,30 @@ Boolean isExistFilename(NSString *fName, NSString *path) {
     
     if([dirArray containsObject:fName]){
         NSLog(@"<%@> is included in <%@>", fName, path);
-        return true;
+        return YES;
     }
     
     NSLog(@"<%@> is not included in <%@>", fName, path);
-    return false;
+    return NO;
 }
+
+NSArray* NXSortedFiles(NSString *path, Boolean ascending) {
+    NSMutableArray *dirArray;
+    NSArray *sortedArray;
+    dirArray = NXDisplayAllFilesAtPath(path);
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"" ascending:ascending];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    sortedArray = [dirArray sortedArrayUsingDescriptors:sortDescriptors];
+    
+    int i;
+    for (i = 0; i < [sortedArray count]; i++) {
+        NSLog(@"index %d has %@.", i, [sortedArray objectAtIndex: i] );
+    }
+    
+    return sortedArray;
+}
+
 
 
