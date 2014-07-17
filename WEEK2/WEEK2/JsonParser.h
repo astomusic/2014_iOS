@@ -10,8 +10,12 @@
 
 @interface JsonParser : NSObject
 
+-(NSString*)MakeJson:(id) data;
+-(id)JsonParsing:(NSString*) data;
+
 -(NSString*)ArrayToJson:(NSArray *) data;
 -(NSString*)DicToJson:(NSDictionary *) data;
 -(NSArray*)JsonToArray:(NSString*) json;
+-(NSDictionary*)JsonToDic:(NSString*) json;
 
 @end

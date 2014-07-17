@@ -10,6 +10,12 @@
 
 @implementation JsonParser
 
+-(id)init
+{
+    self = [super init];
+    return self;
+}
+
 -(NSString*)MakeJson:(id) data
 {
     NSMutableString* result = [[NSMutableString alloc]init];
@@ -20,6 +26,39 @@
     }else{
         //is something else
     }
+    
+    return result;
+}
+
+-(id)JsonParsing:(NSString*) data
+{
+    id result;
+    //NSRange temp = [data rangeOfString:@"{"];
+    NSString* firstChar =[data substringToIndex:1];
+    NSLog(@"%@",firstChar);
+    
+    NSDictionary *resultDic;
+    NSArray *resultArray;
+    
+    if([firstChar isEqualToString:@"{"]) {
+        NSLog(@"dic");
+        NSRange openBracket = [data rangeOfString:@"["];
+        NSRange closeBracket = [data rangeOfString:@"]"];
+        NSRange numberRange = NSMakeRange(openBracket.location, closeBracket.location - openBracket.location + 1);
+        NSString *numberString = [data substringWithRange:numberRange];
+        
+        data = [data stringByReplacingCharactersInRange:numberRange withString:@""];
+        
+        NSLog(@"%@ %@", data, numberString);
+        
+        resultDic = [self JsonToDic:data];
+        return resultDic;
+    } else if([firstChar isEqualToString:@"["]) {
+        NSLog(@"array");
+        resultArray = [self JsonToArray:data];
+        return resultArray;
+    }
+
     
     return result;
 }
@@ -68,19 +107,40 @@
     NSArray *components = [tempjson componentsSeparatedByString: @","];
     
     for(id data in components){
-         NSLog(@"%@",data);
+        NSString* temp = [NSString stringWithString:data];
+        temp = [temp stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@""];
+        temp = [temp stringByReplacingOccurrencesOfString:@"[" withString:@""];
+        temp = [temp stringByReplacingOccurrencesOfString:@"]" withString:@""];
         
-        //NSRange range  = [ data rangeOfString:@" " ];
-        //[data deleteCharactersInRange:range];
+        [result addObject:temp];
     }
+    return result;
+}
+
+-(NSDictionary*)JsonToDic:(NSString*) json
+{
+    NSMutableDictionary* result = [[NSMutableDictionary alloc]init];
     
-//    NSRange openBracket = [json rangeOfString:@"\""];
-//    NSRange closeBracket = [json rangeOfString:@"\""];
-//    NSRange numberRange = NSMakeRange(openBracket.location + 1, closeBracket.location - openBracket.location - 1);
-//    NSString *numberString = [json substringWithRange:numberRange];
-//    
-//    NSLog(@"%@",numberString);
+    NSMutableString* tempjson = [NSMutableString stringWithString:json];
     
+    NSArray *components = [tempjson componentsSeparatedByString: @","];
+    
+    for(id data in components){
+        NSString* temp = [NSString stringWithString:data];
+        temp = [temp stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        temp = [temp stringByReplacingOccurrencesOfString:@" " withString:@""];
+        temp = [temp stringByReplacingOccurrencesOfString:@"{" withString:@""];
+        temp = [temp stringByReplacingOccurrencesOfString:@"}" withString:@""];
+        
+        NSArray *keyValue = [temp componentsSeparatedByString: @":"];
+        if([keyValue[1] rangeOfString:@"["].location != NSNotFound) {
+            NSLog(@"hello");
+            continue;
+        }
+        NSLog(@"%@ %@", temp, keyValue[0]);
+        [result setObject:keyValue[1] forKey:keyValue[0]];
+    }
     return result;
 }
 
