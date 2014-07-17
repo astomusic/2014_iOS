@@ -47,11 +47,16 @@
         NSRange numberRange = NSMakeRange(openBracket.location, closeBracket.location - openBracket.location + 1);
         NSString *numberString = [data substringWithRange:numberRange];
         
-        data = [data stringByReplacingCharactersInRange:numberRange withString:@""];
-        
-        NSLog(@"%@ %@", data, numberString);
+        NSArray* temp = [self JsonToArray:numberString];
+        data = [data stringByReplacingCharactersInRange:numberRange withString:@"@"];
         
         resultDic = [self JsonToDic:data];
+        
+        for(id key in resultDic){
+            if([[resultDic objectForKey:key] isEqualToString:@"@"]) {
+                [resultDic setValue:temp forKey:key];
+            }
+        }
         return resultDic;
     } else if([firstChar isEqualToString:@"["]) {
         NSLog(@"array");
@@ -134,11 +139,6 @@
         temp = [temp stringByReplacingOccurrencesOfString:@"}" withString:@""];
         
         NSArray *keyValue = [temp componentsSeparatedByString: @":"];
-        if([keyValue[1] rangeOfString:@"["].location != NSNotFound) {
-            NSLog(@"hello");
-            continue;
-        }
-        NSLog(@"%@ %@", temp, keyValue[0]);
         [result setObject:keyValue[1] forKey:keyValue[0]];
     }
     return result;
