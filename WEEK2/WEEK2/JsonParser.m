@@ -70,8 +70,8 @@
     for(id data in components){
          NSLog(@"%@",data);
         
-        NSRange range  = [ data rangeOfString:@" " ];
-        [data deleteCharactersInRange:range];
+        //NSRange range  = [ data rangeOfString:@" " ];
+        //[data deleteCharactersInRange:range];
     }
     
 //    NSRange openBracket = [json rangeOfString:@"\""];
