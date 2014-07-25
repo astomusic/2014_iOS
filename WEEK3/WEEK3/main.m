@@ -17,7 +17,6 @@ int main(int argc, const char * argv[])
         puzzle* p = [[puzzle alloc]init];
         [p makeBoard:3];
         [p viewBoard];
-        [p shuffleBoard];
         
         [p inputKey];
         

@@ -30,10 +30,10 @@
     }
     
     
-    for(i =0 ; i < _size*_size ; i++ ) {
-        [self shuffleBoard];
-    }
-    NSLog(@"%@", _board);
+    [self shuffleBoard:9];
+    [self getZeroPos];
+    
+    NSLog(@"%d %d", _zeroPos.x, _zeroPos.y);
 }
 
 -(void)viewBoard
@@ -42,35 +42,125 @@
     for(int i =0 ; i < _size ; i++ ) {
         for(int j =0 ; j < _size ; j++ ) {
             NSNumber* temp = _board[i][j];
-            [result stringByAppendingFormat:@"%@", temp];
+            [result appendFormat:@"%@", temp];
         }
-        [result stringByAppendingString:@"\n"];
+        [result appendString:@"\n"];
     }
-    NSLog(@"view : %@", result);
+    NSLog(@"<view>\n%@", result);
     [result release];
 }
 
--(void)shuffleBoard
+-(void)shuffleBoard:(int)number
 {
     srand48(time(0));
-    int r1 = arc4random() % _size;
-    int r2 = arc4random() % _size;
+    position pos1;
+    position pos2;
+    for(int i =0 ; i < number ; i++ ) {
+        pos1.x = arc4random() % _size;
+        pos1.y = arc4random() % _size;
+        
+        pos2.x = arc4random() % _size;
+        pos2.y = arc4random() % _size;
+        
+        [self swapPositon:pos1 with:pos2];
+    }
     
-    int r3 = arc4random() % _size;
-    int r4 = arc4random() % _size;
-    
-    NSNumber* temp = _board[r1][r2];
-    _board[r1][r2] = _board[r3][r4];
-    _board[r3][r4] = temp;
+}
+
+-(void)swapPositon:(struct position)pos1 with:(struct position)pos2
+{
+    NSNumber* temp = _board[pos1.x][pos1.y];
+    _board[pos1.x][pos1.y] = _board[pos2.x][pos2.y];
+    _board[pos2.x][pos2.y] = temp;
+}
+
+-(void)getZeroPos
+{
+    for(int i =0 ; i < _size ; i++ ) {
+        for(int j =0 ; j < _size ; j++ ) {
+            if([_board[i][j] isEqualToNumber:@0]) {
+                _zeroPos.x = i;
+                _zeroPos.y = j;
+            }
+        }
+    }
 }
 
 -(void)inputKey
 {
-    int key;
-    NSLog(@"input key");
-    scanf("%i", &key);
+    char key;
+    NSString* result;
     
-    NSLog(@"%d",key);
+    while(1) {
+        NSLog(@"input key");
+        scanf("%1s", &key);
+        result = [NSString stringWithUTF8String:&key];
+        result = [result lowercaseString];
+        
+        if([result isEqualToString:@"q"]) break;
+        if([result isEqualToString:@"w"]) [self pressKeyUp];
+        else if([result isEqualToString:@"a"]) [self pressKeyLeft];
+        else if([result isEqualToString:@"s"]) [self pressKeyDown];
+        else if([result isEqualToString:@"d"]) [self pressKeyRight];
+        else NSLog(@"wrong key");
+    }
+    
+}
+
+-(void)pressKeyUp
+{
+    if(_zeroPos.x == _size-1) {
+        return;
+    } else {
+        position pos;
+        pos.x = _zeroPos.x + 1;
+        pos.y = _zeroPos.y;
+        [self swapPositon:pos with:_zeroPos];
+        _zeroPos = pos;
+    }
+    [self viewBoard];
+}
+
+-(void)pressKeyDown
+{
+    if(_zeroPos.x == 0) {
+        return;
+    } else {
+        position pos;
+        pos.x = _zeroPos.x - 1;
+        pos.y = _zeroPos.y;
+        [self swapPositon:pos with:_zeroPos];
+        _zeroPos = pos;
+    }
+    [self viewBoard];
+}
+
+-(void)pressKeyLeft
+{
+    if(_zeroPos.y == _size-1) {
+        return;
+    } else {
+        position pos;
+        pos.x = _zeroPos.x;
+        pos.y = _zeroPos.y + 1;
+        [self swapPositon:pos with:_zeroPos];
+        _zeroPos = pos;
+    }
+    [self viewBoard];
+}
+
+-(void)pressKeyRight
+{
+    if(_zeroPos.y == 0) {
+        return;
+    } else {
+        position pos;
+        pos.x = _zeroPos.x;
+        pos.y = _zeroPos.y - 1;
+        [self swapPositon:pos with:_zeroPos];
+        _zeroPos = pos;
+    }
+    [self viewBoard];
 }
 
 @end

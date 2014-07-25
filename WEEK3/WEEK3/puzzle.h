@@ -10,13 +10,20 @@
 
 @interface puzzle : NSObject
 
+struct position {
+    int x;
+    int y;
+};
+
+typedef struct position position;
+
 @property (strong, nonatomic) NSMutableArray* board;
 @property int size;
-
+@property position zeroPos;
 
 -(void)makeBoard:(int)number;
 -(void)viewBoard;
--(void)shuffleBoard;
+-(void)shuffleBoard:(int)number;
 -(void)inputKey;
 
 @end
