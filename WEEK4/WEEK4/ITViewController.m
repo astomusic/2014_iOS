@@ -31,14 +31,15 @@
     imageArray = [[NSArray alloc] initWithObjects:@"1.png", @"2.png", @"3.png", nil];
     
     _myModel = [[ITModel alloc] init];
-
-    [_myModel randomize];
     
-    NSLog(@"randomValue is %d", randomValue);
+    [_myModel addObserver:self forKeyPath:@"KVOrandom" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+//
+//    [_myModel randomize];
+//    
+//    UIImage *image = [UIImage imageNamed:imageArray[randomValue]];
+//    _mainImage.image = image;
     
-    UIImage *image = [UIImage imageNamed:imageArray[randomValue]];
-    _mainImage.image = image;
-
+    
 }
 
 - (void)didReceiveNotification:(NSNotification *)notification
@@ -68,6 +69,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)observeValueForKeyPath:(NSString*)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary*)change
+                       context:(void*)context
+{
+    NSLog(@"%@, %@, %@, %@", keyPath, object, change, context);
+    randomValue = [object KVOrandom];
+    UIImage *image = [UIImage imageNamed:imageArray[randomValue]];
+    _mainImage.image = image;
 }
 
 @end

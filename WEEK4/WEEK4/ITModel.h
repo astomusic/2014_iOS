@@ -10,6 +10,8 @@
 
 @interface ITModel : NSObject
 
+@property int KVOrandom;
+
 -(void)randomize;
 
 @end

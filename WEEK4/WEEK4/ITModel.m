@@ -19,6 +19,7 @@
 - (void)randomize
 {
     int random = arc4random() % 3;
+    self.KVOrandom = random;
     NSLog(@"%d", random);
     
     NSDictionary *userInfo = @{ @"randomValue": [NSNumber numberWithInt:random] };
@@ -26,5 +27,8 @@
                                                         object:nil
                                                       userInfo:userInfo];
 }
+
+
+
 
 @end
