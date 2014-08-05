@@ -7,83 +7,88 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		278FF0A2196E65AF00A5A420 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278FF0A1196E65AF00A5A420 /* Foundation.framework */; };
-		278FF0A5196E65AF00A5A420 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 278FF0A4196E65AF00A5A420 /* main.m */; };
-		278FF0A9196E65AF00A5A420 /* _014_iOS_WEEK1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 278FF0A8196E65AF00A5A420 /* _014_iOS_WEEK1.1 */; };
+		27AB1A6E1980D94C00EFF144 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AB1A6D1980D94C00EFF144 /* Foundation.framework */; };
+		27AB1A711980D94C00EFF144 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AB1A701980D94C00EFF144 /* main.m */; };
+		27AB1A751980D94C00EFF144 /* WEEK3.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 27AB1A741980D94C00EFF144 /* WEEK3.1 */; };
+		27AB1A7D1980DAF000EFF144 /* puzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AB1A7C1980DAF000EFF144 /* puzzle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		278FF09C196E65AF00A5A420 /* CopyFiles */ = {
+		27AB1A681980D94C00EFF144 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				278FF0A9196E65AF00A5A420 /* _014_iOS_WEEK1.1 in CopyFiles */,
+				27AB1A751980D94C00EFF144 /* WEEK3.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		278FF09E196E65AF00A5A420 /* 2014_iOS_WEEK1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 2014_iOS_WEEK1; sourceTree = BUILT_PRODUCTS_DIR; };
-		278FF0A1196E65AF00A5A420 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		278FF0A4196E65AF00A5A420 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		278FF0A7196E65AF00A5A420 /* 2014_iOS_WEEK1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "2014_iOS_WEEK1-Prefix.pch"; sourceTree = "<group>"; };
-		278FF0A8196E65AF00A5A420 /* _014_iOS_WEEK1.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = _014_iOS_WEEK1.1; sourceTree = "<group>"; };
+		27AB1A6A1980D94C00EFF144 /* WEEK3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WEEK3; sourceTree = BUILT_PRODUCTS_DIR; };
+		27AB1A6D1980D94C00EFF144 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		27AB1A701980D94C00EFF144 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		27AB1A731980D94C00EFF144 /* WEEK3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WEEK3-Prefix.pch"; sourceTree = "<group>"; };
+		27AB1A741980D94C00EFF144 /* WEEK3.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = WEEK3.1; sourceTree = "<group>"; };
+		27AB1A7B1980DAF000EFF144 /* puzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puzzle.h; sourceTree = "<group>"; };
+		27AB1A7C1980DAF000EFF144 /* puzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = puzzle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		278FF09B196E65AF00A5A420 /* Frameworks */ = {
+		27AB1A671980D94C00EFF144 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				278FF0A2196E65AF00A5A420 /* Foundation.framework in Frameworks */,
+				27AB1A6E1980D94C00EFF144 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		278FF095196E65AF00A5A420 = {
+		27AB1A611980D94C00EFF144 = {
 			isa = PBXGroup;
 			children = (
-				278FF0A3196E65AF00A5A420 /* 2014_iOS_WEEK1 */,
-				278FF0A0196E65AF00A5A420 /* Frameworks */,
-				278FF09F196E65AF00A5A420 /* Products */,
+				27AB1A6F1980D94C00EFF144 /* WEEK3 */,
+				27AB1A6C1980D94C00EFF144 /* Frameworks */,
+				27AB1A6B1980D94C00EFF144 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		278FF09F196E65AF00A5A420 /* Products */ = {
+		27AB1A6B1980D94C00EFF144 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				278FF09E196E65AF00A5A420 /* 2014_iOS_WEEK1 */,
+				27AB1A6A1980D94C00EFF144 /* WEEK3 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		278FF0A0196E65AF00A5A420 /* Frameworks */ = {
+		27AB1A6C1980D94C00EFF144 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				278FF0A1196E65AF00A5A420 /* Foundation.framework */,
+				27AB1A6D1980D94C00EFF144 /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		278FF0A3196E65AF00A5A420 /* 2014_iOS_WEEK1 */ = {
+		27AB1A6F1980D94C00EFF144 /* WEEK3 */ = {
 			isa = PBXGroup;
 			children = (
-				278FF0A4196E65AF00A5A420 /* main.m */,
-				278FF0A8196E65AF00A5A420 /* _014_iOS_WEEK1.1 */,
-				278FF0A6196E65AF00A5A420 /* Supporting Files */,
+				27AB1A701980D94C00EFF144 /* main.m */,
+				27AB1A741980D94C00EFF144 /* WEEK3.1 */,
+				27AB1A721980D94C00EFF144 /* Supporting Files */,
+				27AB1A7B1980DAF000EFF144 /* puzzle.h */,
+				27AB1A7C1980DAF000EFF144 /* puzzle.m */,
 			);
-			path = 2014_iOS_WEEK1;
+			path = WEEK3;
 			sourceTree = "<group>";
 		};
-		278FF0A6196E65AF00A5A420 /* Supporting Files */ = {
+		27AB1A721980D94C00EFF144 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				278FF0A7196E65AF00A5A420 /* 2014_iOS_WEEK1-Prefix.pch */,
+				27AB1A731980D94C00EFF144 /* WEEK3-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -91,62 +96,63 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		278FF09D196E65AF00A5A420 /* 2014_iOS_WEEK1 */ = {
+		27AB1A691980D94C00EFF144 /* WEEK3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 278FF0AC196E65AF00A5A420 /* Build configuration list for PBXNativeTarget "2014_iOS_WEEK1" */;
+			buildConfigurationList = 27AB1A781980D94C00EFF144 /* Build configuration list for PBXNativeTarget "WEEK3" */;
 			buildPhases = (
-				278FF09A196E65AF00A5A420 /* Sources */,
-				278FF09B196E65AF00A5A420 /* Frameworks */,
-				278FF09C196E65AF00A5A420 /* CopyFiles */,
+				27AB1A661980D94C00EFF144 /* Sources */,
+				27AB1A671980D94C00EFF144 /* Frameworks */,
+				27AB1A681980D94C00EFF144 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = 2014_iOS_WEEK1;
-			productName = 2014_iOS_WEEK1;
-			productReference = 278FF09E196E65AF00A5A420 /* 2014_iOS_WEEK1 */;
+			name = WEEK3;
+			productName = WEEK3;
+			productReference = 27AB1A6A1980D94C00EFF144 /* WEEK3 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		278FF096196E65AF00A5A420 /* Project object */ = {
+		27AB1A621980D94C00EFF144 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = NEXT;
 			};
-			buildConfigurationList = 278FF099196E65AF00A5A420 /* Build configuration list for PBXProject "2014_iOS_WEEK1" */;
+			buildConfigurationList = 27AB1A651980D94C00EFF144 /* Build configuration list for PBXProject "WEEK3" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 278FF095196E65AF00A5A420;
-			productRefGroup = 278FF09F196E65AF00A5A420 /* Products */;
+			mainGroup = 27AB1A611980D94C00EFF144;
+			productRefGroup = 27AB1A6B1980D94C00EFF144 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				278FF09D196E65AF00A5A420 /* 2014_iOS_WEEK1 */,
+				27AB1A691980D94C00EFF144 /* WEEK3 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		278FF09A196E65AF00A5A420 /* Sources */ = {
+		27AB1A661980D94C00EFF144 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				278FF0A5196E65AF00A5A420 /* main.m in Sources */,
+				27AB1A711980D94C00EFF144 /* main.m in Sources */,
+				27AB1A7D1980DAF000EFF144 /* puzzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		278FF0AA196E65AF00A5A420 /* Debug */ = {
+		27AB1A761980D94C00EFF144 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -184,7 +190,7 @@
 			};
 			name = Debug;
 		};
-		278FF0AB196E65AF00A5A420 /* Release */ = {
+		27AB1A771980D94C00EFF144 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -216,20 +222,22 @@
 			};
 			name = Release;
 		};
-		278FF0AD196E65AF00A5A420 /* Debug */ = {
+		27AB1A791980D94C00EFF144 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "2014_iOS_WEEK1/2014_iOS_WEEK1-Prefix.pch";
+				GCC_PREFIX_HEADER = "WEEK3/WEEK3-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		278FF0AE196E65AF00A5A420 /* Release */ = {
+		27AB1A7A1980D94C00EFF144 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "2014_iOS_WEEK1/2014_iOS_WEEK1-Prefix.pch";
+				GCC_PREFIX_HEADER = "WEEK3/WEEK3-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -237,25 +245,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		278FF099196E65AF00A5A420 /* Build configuration list for PBXProject "2014_iOS_WEEK1" */ = {
+		27AB1A651980D94C00EFF144 /* Build configuration list for PBXProject "WEEK3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				278FF0AA196E65AF00A5A420 /* Debug */,
-				278FF0AB196E65AF00A5A420 /* Release */,
+				27AB1A761980D94C00EFF144 /* Debug */,
+				27AB1A771980D94C00EFF144 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		278FF0AC196E65AF00A5A420 /* Build configuration list for PBXNativeTarget "2014_iOS_WEEK1" */ = {
+		27AB1A781980D94C00EFF144 /* Build configuration list for PBXNativeTarget "WEEK3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				278FF0AD196E65AF00A5A420 /* Debug */,
-				278FF0AE196E65AF00A5A420 /* Release */,
+				27AB1A791980D94C00EFF144 /* Debug */,
+				27AB1A7A1980D94C00EFF144 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 278FF096196E65AF00A5A420 /* Project object */;
+	rootObject = 27AB1A621980D94C00EFF144 /* Project object */;
 }

@@ -28,6 +28,15 @@
                                                  name:@"randomChanged-notification"
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(enterBackgroundNotification:)
+                                                 name:@"DidEnterBackground-notification"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(becomeActiveNotification:)
+                                                 name:@"DidBecomeActive-notification"
+                                               object:nil];
+    
     imageArray = [[NSArray alloc] initWithObjects:@"1.png", @"2.png", @"3.png", nil];
     
     _myModel = [[ITModel alloc] init];
@@ -47,6 +56,19 @@
     NSString *message = [notification.userInfo objectForKey:@"randomValue"];
     NSLog(@"I've got the randomValue %@", message);
     randomValue = [message intValue];
+}
+
+- (void)enterBackgroundNotification:(NSNotification *)notification
+{
+    NSLog(@"%d saved", randomValue);
+    [[NSUserDefaults standardUserDefaults]setInteger:randomValue forKey:@"save"];
+}
+
+- (void)becomeActiveNotification:(NSNotification *)notification
+{
+    int savedValue = (int)[[NSUserDefaults standardUserDefaults]integerForKey:@"save"];
+    UIImage *image = [UIImage imageNamed:imageArray[savedValue]];
+    _mainImage.image = image;
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
@@ -81,5 +103,6 @@
     UIImage *image = [UIImage imageNamed:imageArray[randomValue]];
     _mainImage.image = image;
 }
+
 
 @end

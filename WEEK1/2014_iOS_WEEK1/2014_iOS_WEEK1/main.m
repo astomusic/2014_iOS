@@ -39,7 +39,7 @@ NSMutableArray* NXDisplayAllFilesAtPath(NSString *path) {
     
     fm = [NSFileManager defaultManager];
     
-    dirEnum= [fm enumeratorAtPath:path];
+    dirEnum = [fm enumeratorAtPath:path];
     NSLog(@"currnet directory : %@", path);
     while ((file = [dirEnum nextObject]) != nil) {
         [dirArray addObject:(NSString*)file];

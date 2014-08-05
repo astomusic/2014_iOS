@@ -35,7 +35,6 @@
     id result;
     //NSRange temp = [data rangeOfString:@"{"];
     NSString* firstChar =[data substringToIndex:1];
-    NSLog(@"%@",firstChar);
     
     NSDictionary *resultDic;
     NSArray *resultArray;
