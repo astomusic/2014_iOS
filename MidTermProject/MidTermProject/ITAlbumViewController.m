@@ -113,6 +113,10 @@
     myCell.cellLabel.text = [item objectForKey:@"title"];
     UIImage *picture = [UIImage imageNamed:[item objectForKey:@"image"]];
     [myCell.cellImage setImage:picture];
+    
+    myCell.cellImage.contentMode = UIViewContentModeScaleAspectFill;
+    myCell.cellImage.clipsToBounds = YES;
+    
     return myCell;
 }
 
