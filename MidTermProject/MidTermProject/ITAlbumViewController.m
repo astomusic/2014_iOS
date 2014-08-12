@@ -107,7 +107,7 @@
     cell.textLabel.text = [item objectForKey:@"title"];
     cell.detailTextLabel.text = [item objectForKey:@"date"];
     // Configure the cell...
-    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
