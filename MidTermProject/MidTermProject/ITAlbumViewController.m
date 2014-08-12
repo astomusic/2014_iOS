@@ -108,7 +108,12 @@
     cell.detailTextLabel.text = [item objectForKey:@"date"];
     // Configure the cell...
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    return cell;
+    
+    ITCustomCell *myCell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
+    myCell.cellLabel.text = [item objectForKey:@"title"];
+    UIImage *picture = [UIImage imageNamed:[item objectForKey:@"image"]];
+    [myCell.cellImage setImage:picture];
+    return myCell;
 }
 
 

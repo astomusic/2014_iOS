@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ITModel.h"
 #import "ITViewController.h"
+#import "ITCustomCell.h"
 
 @interface ITAlbumViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UITableView *albumTable;

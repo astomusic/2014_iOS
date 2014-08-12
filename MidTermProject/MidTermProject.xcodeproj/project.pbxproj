@@ -46,6 +46,7 @@
 		274083921999D86C009E7804 /* 22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2740837C1999D86C009E7804 /* 22.jpg */; };
 		274083951999D8AB009E7804 /* ITModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 274083941999D8AB009E7804 /* ITModel.m */; };
 		274083981999DCC4009E7804 /* ITAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274083971999DCC4009E7804 /* ITAlbumViewController.m */; };
+		2740839B199A079F009E7804 /* ITCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2740839A199A079F009E7804 /* ITCustomCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		274083941999D8AB009E7804 /* ITModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITModel.m; sourceTree = "<group>"; };
 		274083961999DCC4009E7804 /* ITAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITAlbumViewController.h; sourceTree = "<group>"; };
 		274083971999DCC4009E7804 /* ITAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITAlbumViewController.m; sourceTree = "<group>"; };
+		27408399199A079F009E7804 /* ITCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITCustomCell.h; sourceTree = "<group>"; };
+		2740839A199A079F009E7804 /* ITCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITCustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 				274083941999D8AB009E7804 /* ITModel.m */,
 				274083961999DCC4009E7804 /* ITAlbumViewController.h */,
 				274083971999DCC4009E7804 /* ITAlbumViewController.m */,
+				27408399199A079F009E7804 /* ITCustomCell.h */,
+				2740839A199A079F009E7804 /* ITCustomCell.m */,
 			);
 			path = MidTermProject;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2740833B1999D7A9009E7804 /* main.m in Sources */,
+				2740839B199A079F009E7804 /* ITCustomCell.m in Sources */,
 				2740833F1999D7A9009E7804 /* ITAppDelegate.m in Sources */,
 				274083951999D8AB009E7804 /* ITModel.m in Sources */,
 				274083981999DCC4009E7804 /* ITAlbumViewController.m in Sources */,
