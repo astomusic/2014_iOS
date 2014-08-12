@@ -10,7 +10,7 @@
 
 @implementation ITModel
 {
-    NSArray *jsonData;
+    NSMutableArray *jsonData;
     char* charData;
 }
 
@@ -25,7 +25,8 @@
         NSData* data = [NSData dataWithBytes:(const void *)charData length:sizeof(unsigned char)*size];
         
         NSError *error;
-        jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        NSArray* temp = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        jsonData = [NSMutableArray arrayWithArray:temp];
         NSLog(@"%@", jsonData);
     }
     
@@ -38,12 +39,19 @@
                                                         object:nil];
 }
 
+-(void)deletetAtIndex:(NSUInteger)index
+{
+    NSLog(@"deletetAtIndex");
+    [jsonData removeObjectAtIndex:index];
+
+}
+
 -(void)sortByDate
 {
     NSSortDescriptor *dateSoter = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
     NSArray *temp = [NSArray arrayWithObject:dateSoter];
     NSArray *sortedArray = [jsonData sortedArrayUsingDescriptors:temp];
-    jsonData = sortedArray;
+    jsonData = [NSMutableArray arrayWithArray:sortedArray];
     NSLog(@"%@", jsonData);
     [self completedLoad];
 }

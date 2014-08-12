@@ -12,6 +12,7 @@
 
 -(NSInteger)numberOfData;
 -(NSDictionary*)objectAtIndex:(NSUInteger)index;
+-(void)deletetAtIndex:(NSUInteger)index;
 -(void)completedLoad;
 -(void)sortByDate;
 
