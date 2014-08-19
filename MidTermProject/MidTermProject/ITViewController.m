@@ -23,6 +23,8 @@
     _detailDate.text = _recipeDate;
     UIImage *picture = [UIImage imageNamed:_recipeImage];
     [_detailImage setImage:picture];
+    _detailImage.contentMode = UIViewContentModeScaleAspectFill;
+    _detailImage.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning

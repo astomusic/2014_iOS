@@ -47,6 +47,7 @@
 		274083951999D8AB009E7804 /* ITModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 274083941999D8AB009E7804 /* ITModel.m */; };
 		274083981999DCC4009E7804 /* ITAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 274083971999DCC4009E7804 /* ITAlbumViewController.m */; };
 		2740839B199A079F009E7804 /* ITCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2740839A199A079F009E7804 /* ITCustomCell.m */; };
+		276214E919A32B880068933F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 276214E819A32B880068933F /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		274083971999DCC4009E7804 /* ITAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITAlbumViewController.m; sourceTree = "<group>"; };
 		27408399199A079F009E7804 /* ITCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITCustomCell.h; sourceTree = "<group>"; };
 		2740839A199A079F009E7804 /* ITCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITCustomCell.m; sourceTree = "<group>"; };
+		276214E719A32B880068933F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		276214E819A32B880068933F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 		274083341999D7A9009E7804 /* MidTermProject */ = {
 			isa = PBXGroup;
 			children = (
+				276214E719A32B880068933F /* Reachability.h */,
+				276214E819A32B880068933F /* Reachability.m */,
 				274083661999D85A009E7804 /* images */,
 				2740833D1999D7A9009E7804 /* ITAppDelegate.h */,
 				2740833E1999D7A9009E7804 /* ITAppDelegate.m */,
@@ -368,6 +373,7 @@
 				2740833B1999D7A9009E7804 /* main.m in Sources */,
 				2740839B199A079F009E7804 /* ITCustomCell.m in Sources */,
 				2740833F1999D7A9009E7804 /* ITAppDelegate.m in Sources */,
+				276214E919A32B880068933F /* Reachability.m in Sources */,
 				274083951999D8AB009E7804 /* ITModel.m in Sources */,
 				274083981999DCC4009E7804 /* ITAlbumViewController.m in Sources */,
 				274083481999D7A9009E7804 /* ITViewController.m in Sources */,
@@ -585,6 +591,7 @@
 				274083621999D7A9009E7804 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		274083631999D7A9009E7804 /* Build configuration list for PBXNativeTarget "MidTermProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -593,6 +600,7 @@
 				274083651999D7A9009E7804 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

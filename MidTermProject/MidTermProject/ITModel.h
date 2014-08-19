@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Reachability.h"
 
-@interface ITModel : NSObject
+@interface ITModel : NSObject <NSURLConnectionDataDelegate>
 
 -(NSInteger)numberOfData;
 -(NSDictionary*)objectAtIndex:(NSUInteger)index;
