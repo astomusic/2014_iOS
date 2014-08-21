@@ -14,6 +14,7 @@
     long readBytes;
     long imageLen;
     BOOL initLen;
+    NSInputStream *inputStream;
 }
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
@@ -71,7 +72,7 @@
         CFWriteStreamRef writeStream;
         CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)urlStr, port, &readStream, &writeStream);
         
-        NSInputStream *inputStream = (__bridge_transfer NSInputStream *)readStream;
+        inputStream = (__bridge_transfer NSInputStream *)readStream;
         NSOutputStream *outputStream = (__bridge_transfer NSOutputStream *)writeStream;
         [inputStream setDelegate:self];
         [outputStream setDelegate:self];
@@ -139,6 +140,11 @@
             break;
         }
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    NSLog(@"hihihi");
+    [inputStream close];
 }
 
 - (void)didReceiveMemoryWarning
