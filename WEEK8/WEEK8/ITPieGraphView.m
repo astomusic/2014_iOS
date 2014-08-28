@@ -12,7 +12,7 @@
 
 -(void)drawRect:(CGRect)rect
 {
-    int total = 0;
+    float total = 0;
     NSMutableArray* values = [[NSMutableArray alloc] init];
     for(int i=0; i<[_jsonData count]; i++) {
         NSLog(@"%@",[_jsonData objectAtIndex:i]);
