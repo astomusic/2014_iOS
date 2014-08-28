@@ -24,9 +24,8 @@
     float sdeg = 0;
     for(int i=0; i<[_jsonData count]; i++) {
         int value = [[[_jsonData objectAtIndex:i] objectForKey:@"value"] intValue];
+        NSString* title = [[_jsonData objectAtIndex:i] objectForKey:@"title"];
         float edeg = (value*360)/total + sdeg;
-        
-        
         
         UIBezierPath *path = [self drawArc:sdeg endDeg:edeg];
         
@@ -41,8 +40,38 @@
         sdeg = edeg;
     }
     
-    
+    sdeg = 0;
+    for(int i=0; i<[_jsonData count]; i++) {
+        int value = [[[_jsonData objectAtIndex:i] objectForKey:@"value"] intValue];
+        NSString* title = [[_jsonData objectAtIndex:i] objectForKey:@"title"];
+        float edeg = (value*360)/total + sdeg;
+        
+        NSLog(@"%f",edeg);
+        NSLog(@"%f",sdeg);
+        float mid = (edeg + sdeg)/2;
+        float resultY = 70 * sinf(mid / 180 * M_PI);
+        float resultX = 70 * cosf(mid / 180 * M_PI);
+        
+        CGFloat x = resultX + 100;
+        CGFloat y = resultY + 100;
+        CGPoint startPoint = CGPointMake(x, y);
+        [[self drawText:title] drawAtPoint:startPoint];
+        
+        sdeg = edeg;
+    }
 }
+
+-(NSAttributedString*) drawText:(NSString*) text
+{
+    UIFont* font = [UIFont fontWithName:@"Arial" size:8];
+    UIColor* textColor = [self setColor:0 green:0 blue:0];
+    NSDictionary* stringAttrs = @{ NSFontAttributeName : font, NSForegroundColorAttributeName : textColor };
+    
+    NSAttributedString* attrStr = [[NSAttributedString alloc] initWithString:text attributes:stringAttrs];
+    
+    return attrStr;
+}
+
 
 -(UIColor*) setColor:(int)red green:(int)green blue:(int)blue
 {
@@ -72,9 +101,6 @@
     CGPoint startPoint = CGPointMake(x, y);
     
     [path moveToPoint:startPoint];
-    
-    NSLog(@"%f", srad);
-    NSLog(@"%f", erad);
     
     [path addArcWithCenter:startPoint radius:rad startAngle:srad endAngle:erad clockwise:YES];
     
