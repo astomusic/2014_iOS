@@ -23,6 +23,8 @@
 		27DE100F19AC54580081F2FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27DE100D19AC54580081F2FE /* InfoPlist.strings */; };
 		27DE101119AC54580081F2FE /* WEEK8Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DE101019AC54580081F2FE /* WEEK8Tests.m */; };
 		27DE101C19AC54F20081F2FE /* ITMyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DE101B19AC54F20081F2FE /* ITMyView.m */; };
+		27E4DDDF19AEFF3F007D8C95 /* ITBarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E4DDDE19AEFF3F007D8C95 /* ITBarGraphView.m */; };
+		27E4DDE219AF1158007D8C95 /* ITPieGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E4DDE119AF1158007D8C95 /* ITPieGraphView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		27DE101019AC54580081F2FE /* WEEK8Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WEEK8Tests.m; sourceTree = "<group>"; };
 		27DE101A19AC54F20081F2FE /* ITMyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMyView.h; sourceTree = "<group>"; };
 		27DE101B19AC54F20081F2FE /* ITMyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITMyView.m; sourceTree = "<group>"; };
+		27E4DDDD19AEFF3F007D8C95 /* ITBarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITBarGraphView.h; sourceTree = "<group>"; };
+		27E4DDDE19AEFF3F007D8C95 /* ITBarGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITBarGraphView.m; sourceTree = "<group>"; };
+		27E4DDE019AF1158007D8C95 /* ITPieGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITPieGraphView.h; sourceTree = "<group>"; };
+		27E4DDE119AF1158007D8C95 /* ITPieGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITPieGraphView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,10 @@
 				27DE0FE919AC54580081F2FE /* Supporting Files */,
 				27DE101A19AC54F20081F2FE /* ITMyView.h */,
 				27DE101B19AC54F20081F2FE /* ITMyView.m */,
+				27E4DDDD19AEFF3F007D8C95 /* ITBarGraphView.h */,
+				27E4DDDE19AEFF3F007D8C95 /* ITBarGraphView.m */,
+				27E4DDE019AF1158007D8C95 /* ITPieGraphView.h */,
+				27E4DDE119AF1158007D8C95 /* ITPieGraphView.m */,
 			);
 			path = WEEK8;
 			sourceTree = "<group>";
@@ -259,6 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27E4DDDF19AEFF3F007D8C95 /* ITBarGraphView.m in Sources */,
+				27E4DDE219AF1158007D8C95 /* ITPieGraphView.m in Sources */,
 				27DE0FEF19AC54580081F2FE /* main.m in Sources */,
 				27DE0FF319AC54580081F2FE /* ITAppDelegate.m in Sources */,
 				27DE0FFC19AC54580081F2FE /* ITViewController.m in Sources */,
@@ -477,6 +489,7 @@
 				27DE101619AC54580081F2FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		27DE101719AC54580081F2FE /* Build configuration list for PBXNativeTarget "WEEK8Tests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +498,7 @@
 				27DE101919AC54580081F2FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
