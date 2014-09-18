@@ -17,7 +17,7 @@
     sqlite3* database;
     
     NSMutableString* nowTagStr;
-    NSString* txtBuffer;
+    NSMutableString* txtBuffer;
 }
 - (void)viewDidLoad
 {
@@ -113,7 +113,7 @@
     NSLog(@"foundCharacters");
 	if ([nowTagStr isEqualToString:@"item"]) {}
     if ([nowTagStr isEqualToString:@"title"]) {
-        txtBuffer = [txtBuffer stringByAppendingString:string];
+        [txtBuffer appendString:string];
     }
     if ([nowTagStr isEqualToString:@"link"]) {}
     if ([nowTagStr isEqualToString:@"description"]) {}
