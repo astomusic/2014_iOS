@@ -51,6 +51,9 @@
     UIPinchGestureRecognizer* pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchGesture:)];
     [self.view addGestureRecognizer:pinchRecognizer];
     
+    UIRotationGestureRecognizer* rotateRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotateGesture:)];
+    [self.view addGestureRecognizer:rotateRecognizer];
+
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
@@ -101,6 +104,12 @@
     if (rec.state == UIGestureRecognizerStateEnded){
         CGRect box = CGRectMake(lastCenterPosition.x-boxSize/2,lastCenterPosition.y-boxSize/2,boxSize,boxSize);
         [imageView setFrame:box];
+    }
+}
+
+- (void)rotateGesture:(UIRotationGestureRecognizer*)rec {
+    NSLog(@"rotate");
+    if (rec.state == UIGestureRecognizerStateEnded){
     }
 }
 
