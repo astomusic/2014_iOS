@@ -37,8 +37,6 @@
         [imageViewArray insertObject:[NSNull null] atIndex:i];
     }
     
-    
-    
     _scrollview.contentSize = CGSizeMake(_scrollview.frame.size.width, _scrollview.frame.size.height * [imageArray count]);
     
     for (int i = 0 ; i < 2 ; i++) {
@@ -59,6 +57,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSLog(@"%f", [self.scrollview contentOffset].y);
+    
     int num = [self.scrollview contentOffset].y / _scrollview.frame.size.height;
     int max = num+1>[imageArray count]?(int)[imageArray count]:num+1;
     int min = num-1<0?0:num-1;

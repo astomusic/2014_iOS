@@ -15,14 +15,15 @@
     NSMutableArray * records;
     NSMutableArray * feeds;
     sqlite3* database;
+    sqlite3* databaseforNewsFeed;
     
     NSMutableString* nowTagStr;
     NSMutableString* txtBuffer;
+    NSMutableDictionary* feed;
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 //    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 //    NSString* documentsDirectory = [paths lastObject];
     NSString* databasePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"top25.db"];
@@ -35,10 +36,23 @@
         sqlite3_close (database);
     }
     
+    feeds = [[NSMutableArray alloc]init];
+    
     NSURL *myURL = [NSURL URLWithString:@"http://images.apple.com/main/rss/hotnews/hotnews.rss"];
 	NSXMLParser *myParser = [[NSXMLParser alloc] initWithContentsOfURL:myURL];
     [myParser setDelegate:self];
     [myParser parse];
+    
+    NSLog(@"%@", feeds);
+    NSString* databasePathforNewsFeed = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"newsfeed.db"];
+    
+    if(sqlite3_open([databasePathforNewsFeed UTF8String], &databaseforNewsFeed) == SQLITE_OK) {
+        NSLog(@"Opened sqlite database at %@", databasePathforNewsFeed);
+        [self insertAll];
+    } else {
+        NSLog(@"Failed to open database at %@ with error %s", databasePathforNewsFeed, sqlite3_errmsg(databaseforNewsFeed));
+        sqlite3_close (databaseforNewsFeed);
+    }
 }
 
 -(void) selectAll
@@ -57,6 +71,26 @@
             
             NSDictionary *song =[[NSDictionary alloc] initWithObjectsAndKeys:id,@"id", title,@"title", category,@"category", image,@"image", nil];
             [records addObject:song];
+        }
+    }
+}
+
+-(void)insertAll
+{
+    int key = 0;
+    int rc = 0;
+    NSNumber *keyNumber;
+    for(NSMutableDictionary* newfeed in feeds) {
+        key++;
+        keyNumber = [NSNumber numberWithInt:key];
+        //http://stackoverflow.com/questions/5700488/insert-data-from-text-fields-into-sqlite-database
+        NSString* query = [[NSString alloc]initWithFormat:@"INSERT INTO tbl_newsfeed values(%@, \"%@\", \"%@\", \"%@\", DATETIME('NOW'));", keyNumber, [newfeed objectForKey:@"title"], [newfeed objectForKey:@"link"],[newfeed objectForKey:@"description"]];
+        NSLog(@"%@", query);
+        char * errMsg;
+        rc = sqlite3_exec(databaseforNewsFeed, [query UTF8String] ,NULL,NULL,&errMsg);
+        if(SQLITE_OK != rc)
+        {
+            NSLog(@"Failed to insert record  rc:%d, msg=%s",rc,errMsg);
         }
     }
 }
@@ -99,35 +133,57 @@
 }
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
-    NSLog(@"didStartElement");
-	if([elementName isEqualToString:@"item"]){}
+	if([elementName isEqualToString:@"item"]){
+        feed = [[NSMutableDictionary alloc]init];
+    }
     if([elementName isEqualToString:@"title"]){
 		nowTagStr = [NSMutableString stringWithString:elementName];
 		txtBuffer = [NSMutableString stringWithString:@""];
     }
-    if([elementName isEqualToString:@"link"]){}
-    if([elementName isEqualToString:@"description"]){}
-    if([elementName isEqualToString:@"pubDate"]){}
+    if([elementName isEqualToString:@"link"]){
+        nowTagStr = [NSMutableString stringWithString:elementName];
+		txtBuffer = [NSMutableString stringWithString:@""];
+    }
+    if([elementName isEqualToString:@"description"]){
+        nowTagStr = [NSMutableString stringWithString:elementName];
+		txtBuffer = [NSMutableString stringWithString:@""];
+    }
+    if([elementName isEqualToString:@"pubDate"]){
+        nowTagStr = [NSMutableString stringWithString:elementName];
+		txtBuffer = [NSMutableString stringWithString:@""];
+    }
 }
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    NSLog(@"foundCharacters");
 	if ([nowTagStr isEqualToString:@"item"]) {}
     if ([nowTagStr isEqualToString:@"title"]) {
         [txtBuffer appendString:string];
     }
-    if ([nowTagStr isEqualToString:@"link"]) {}
-    if ([nowTagStr isEqualToString:@"description"]) {}
-    if ([nowTagStr isEqualToString:@"pubDate"]) {}
+    if ([nowTagStr isEqualToString:@"link"]) {
+        [txtBuffer appendString:string];
+    }
+    if ([nowTagStr isEqualToString:@"description"]) {
+        [txtBuffer appendString:string];
+    }
+    if ([nowTagStr isEqualToString:@"pubDate"]) {
+        [txtBuffer appendString:string];
+    }
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
-    NSLog(@"didEndElement");
-	if([elementName isEqualToString:@"item"]){}
-    if([elementName isEqualToString:@"title"]){
-        NSLog(@"%@", txtBuffer);
+	if([elementName isEqualToString:@"item"]){
+        [feeds addObject:feed];
     }
-    if([elementName isEqualToString:@"link"]){}
-    if([elementName isEqualToString:@"description"]){}
-    if([elementName isEqualToString:@"pubDate"]){}
+    if([elementName isEqualToString:@"title"]){
+        [feed setObject:txtBuffer forKey:nowTagStr];
+    }
+    if([elementName isEqualToString:@"link"]){
+        [feed setObject:txtBuffer forKey:nowTagStr];
+    }
+    if([elementName isEqualToString:@"description"]){
+        [feed setObject:txtBuffer forKey:nowTagStr];
+    }
+    if([elementName isEqualToString:@"pubDate"]){
+        [feed setObject:txtBuffer forKey:nowTagStr];
+    }
 }
 
 
